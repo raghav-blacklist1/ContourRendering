@@ -8,6 +8,7 @@ Model model;
 
 GLfloat xRot = 0.0;
 GLfloat zRot = 0.0;
+GLfloat zoom = 1.0;
 
 void display(){
 	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
@@ -44,6 +45,7 @@ void display(){
 	// glTranslatef(-30.0f, -50.0f, 0.0f);
     glRotatef(xRot, 1.0f, 0.0f, 0.0f);
     glRotatef(zRot, 0.0f, 0.0f, 1.0f);
+    glScalef(zoom, zoom, zoom);
 
     model.draw3D();
 
@@ -71,7 +73,10 @@ void ChangeSize(int w, int h)
 	glLoadIdentity();
 }
 
-void keys(unsigned char key, int x, int y){}
+void keys(unsigned char key, int x, int y){
+
+
+}
 
 void sKeys(int key, int x, int y){
 	if(key == GLUT_KEY_UP)
@@ -82,6 +87,10 @@ void sKeys(int key, int x, int y){
 		zRot -= 5.0f;
 	else if(key == GLUT_KEY_LEFT)
 		zRot += 5.0f;
+	else if(key == GLUT_KEY_PAGE_UP)
+		zoom -= 0.05f;
+	else if(key == GLUT_KEY_PAGE_DOWN)
+		zoom += 0.05f;
 	// else if(key > 356.0f)
 	// 	xRot = 0.0f;
 	// else if(key < -1.0f)
@@ -101,7 +110,7 @@ int main(int argc, char **argv) {
     // cout << "Input contour filename: ";
     // cin >> fname;
 
-    model.loadContours("sample2.txt");
+    model.loadContours("sample4.txt");
 
     // createWin(argc, argv, "Contour Rendering", GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH, 100, 100, 500, 500);
 
