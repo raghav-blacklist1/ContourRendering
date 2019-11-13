@@ -88,7 +88,7 @@ int main(int argc, char **argv) {
     // cout << "Input contour filename: ";
     // cin >> fname;
 
-    model.loadContours("sample1.txt");
+    model.loadContours("sample2.txt");
 
     // createWin(argc, argv, "Contour Rendering", GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH, 100, 100, 500, 500);
 
