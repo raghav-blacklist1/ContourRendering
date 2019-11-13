@@ -9,7 +9,7 @@ using namespace std;
 Model model;
 
 GLfloat xRot = 0.0;
-GLfloat yRot = 0.0;
+GLfloat zRot = 0.0;
 
 void display(){
 
@@ -21,8 +21,12 @@ void display(){
     glEnable(GL_DEPTH_TEST);
     glPushMatrix();
 
+	// glTranslatef(0 ,-50 ,-50 );
+
     glRotatef(xRot, 1.0f, 0.0f, 0.0f);
-    glRotatef(yRot, 0.0f, 1.0f, 0.0f);
+    glRotatef(zRot, 0.0f, 0.0f, 1.0f);
+
+	// glTranslatef(50 ,50 ,0);
 
     model.draw3D();
 
@@ -61,17 +65,17 @@ void sKeys(int key, int x, int y){
 	else if(key == GLUT_KEY_DOWN)
 		xRot += 5.0f;
 	else if(key == GLUT_KEY_RIGHT)
-		yRot -= 5.0f;
+		zRot -= 5.0f;
 	else if(key == GLUT_KEY_LEFT)
-		yRot += 5.0f;
+		zRot += 5.0f;
 	else if(key > 356.0f)
 		xRot = 0.0f;
-	else if(key < -1.0f)
-		xRot = 355.0f;
-	else if(key > 356.0f)
-		yRot = 0.0f;
-	else if(key < -1.0f)
-		yRot = 355.0f;
+	// else if(key < -1.0f)
+	// 	xRot = 355.0f;
+	// else if(key > 356.0f)
+	// 	Rot = 0.0f;
+	// else if(key < -1.0f)
+	// 	yRot = 355.0f;
 	else
 		exit(0);
 	glutPostRedisplay();
@@ -84,7 +88,7 @@ int main(int argc, char **argv) {
     // cout << "Input contour filename: ";
     // cin >> fname;
 
-    model.loadContours("sample.txt");
+    model.loadContours("sample1.txt");
 
     // createWin(argc, argv, "Contour Rendering", GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH, 100, 100, 500, 500);
 
