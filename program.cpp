@@ -88,9 +88,9 @@ void sKeys(int key, int x, int y){
 	else if(key == GLUT_KEY_LEFT)
 		zRot += 5.0f;
 	else if(key == GLUT_KEY_PAGE_UP)
-		zoom -= 0.05f;
-	else if(key == GLUT_KEY_PAGE_DOWN)
 		zoom += 0.05f;
+	else if(key == GLUT_KEY_PAGE_DOWN)
+		zoom -= 0.05f;
 	// else if(key > 356.0f)
 	// 	xRot = 0.0f;
 	// else if(key < -1.0f)
